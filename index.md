@@ -1,8 +1,12 @@
+# Links to other sites
+* [bro](https://aqtlol.github.io/cse15l-lab-reports/bro.html)
+* [Lab Report 1 Week 0](https://aqtlol.github.io/cse15l-lab-reports/lab-report-1-week-0.html)
+
 What is up friend!
 *Yo this italic*
 **YO this is BOLD**
 # Some pretty big text
-# Some big text
+## Some big text
 [RiotGames](https://www.riotgames.com/en)
 ![Image](https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/02/One-Piece-Monkey-D.-Luffy-Cropped-Cropped.jpg)
 > blocky
