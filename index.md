@@ -3,7 +3,7 @@ What is up friend!
 **YO this is BOLD**
 # Some pretty big text
 # Some big text
-[Link](https://www.riotgames.com/en)
+[RiotGames](https://www.riotgames.com/en)
 ![Image](https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/02/One-Piece-Monkey-D.-Luffy-Cropped-Cropped.jpg)
 > blocky
 > quote
