@@ -38,3 +38,4 @@ dang this live markdown is so cool and im using vscode to do it instead of the g
 **CODING IS PRETTY CRAZY**
 
 # Wowza
+I'll probably change this website around with more time, but dang such a cool process!
