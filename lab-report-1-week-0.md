@@ -25,3 +25,23 @@ Here I will show you how I connected to the super computers. I sort of struggled
 5. Sweet log in sucessful
 ![Image](sshScreenshot.png)
 ## Trying Some Commands
+So up the here I was not able to actually try out any of the commands. I am in lab A01 on Wednesdays 2-4 class B260. My lab class was having trouble ssh properly due to not being able to correctly set our new passwords. I was finally able to get in at the end of lab but I had watched my group mates run some commands so lets walk through it right now. I am going to complete some commands in the terminal right now and show my outputs aswell as my thoughts.
+
+> `cd ~`
+![Image](CdSs.png)
+This lets us switch between files in the computer.
+
+> `cat /home/linux/ieng6/cs15lfa22/public/hello.txt`
+![Image](catSs.png)
+Displays a nice message written by the CSE staff. How cute!
+
+> `pwd`
+![Image](pwdSs.png)
+Just a fun one I wanted to try out since it was in our key commands from lecture. Prints the current directory.
+
+> `ls -a`
+![Image](lsSs.png)
+This lists a bunch of different things into our terminal. In lecture we learned that the `ls` command lists files and folders that our in the directory we are currently working in. Using pwd we learn our directory is `/home/linux/ieng6/cs15lfa22/cs15lfa22bo`
+
+## Moving Files with `scp`
+Lets try it right now!
