@@ -45,3 +45,20 @@ This lists a bunch of different things into our terminal. In lecture we learned 
 
 ## Moving Files with `scp`
 Lets try it right now!
+
+1. I made a `WhereAmI.java` on my mac with the contents included from the Lab Tasks
+![Image](contentsSS.png)
+2. I compiled my code `javac WhereAmI.java`
+3. Ran my code `java WhereAmI`
+![Image](whereJavaSS.png)
+Message that displays after running the file
+4. Ran the `scp` command `scp WhereAmI.java cs15lfa22bo@ieng6.ucsd.edu:~/` in the directory where the java file is
+5. Typed in my correct password
+6. Logged back into remote computers with `ssh` to check if the file was present
+7. Used the `ls` command to check on my file
+8. It is there!
+![Image](checkSS.png)
+9. Ran the program on the remote computers
+![Image](remoteWhere.png)
+
+## SSH Keys
