@@ -84,3 +84,11 @@ I entered my new password and the file was copied to the remote computer
 ![Image](kingOfPiratesRemote.png)
 
 ## Optimizing Remote Running
+In part 8 of our lab manual we learned that we can actually run commands while we `ssh` into our accounts and we can run multiple commands by using semicolins right after that. So I will now deomonstrate the fastest method I used to change the java file, `scp` the file to the remote computers, and `ssh` to run the file on the remote computer.
+
+1. Change the java file. The new message I added is: "I love UCSD!"
+![Image](javaCodeSS.png)
+2. Use this `scp` command: `scp WhereAmI.java cs15lfa22bo@ieng6.ucsd.edu:~/`
+![Image](scpEndSS.png)
+3. Use this `ssh` command is: `ssh cs15lfa22bo@ieng6.ucsd.edu javac WhereAmI.java; java WhereAmI`
+![Image](sshBeastModeSS.png)

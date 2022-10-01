@@ -5,5 +5,6 @@ class WhereAmI {
       System.out.println(System.getProperty("user.home"));
       System.out.println(System.getProperty("user.dir"));
       System.out.println("I am going to the King of Pirates");
+      System.out.println("I love UCSD!");
     }
   }
