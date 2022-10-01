@@ -57,8 +57,30 @@ Message that displays after running the file
 6. Logged back into remote computers with `ssh` to check if the file was present
 7. Used the `ls` command to check on my file
 8. It is there!
+
 ![Image](checkSS.png)
 9. Ran the program on the remote computers
 ![Image](remoteWhere.png)
 
 ## SSH Keys
+Lets go!
+1. First I began by typing `ssh-keygen` into my terminal
+2. I pressed enter to choose my file to save the keys (default)
+3. I Chose my password and generated my keys
+![Image](keyGenerationSS.png)
+4. On my terminal I `ssh` back into the remote computers
+5. Next I used the command `mkdir .ssh`
+6. I logged out of the remote computers afterwards with `exit`
+7. With the `scp` command with my path where my public key was saved and my username. In my terminal I wrote: `scp /Users/matthewzabaco/.ssh/id_rsa.pub cs15lfa22bo@ieng6.ucsd.edu:~/.ssh/authorized_keys` and entered my password after. A short output was displayed: `id_rsa.pub`
+8. Next I edited the `WhereAmI.java` to contain a small message: I am going to the King of Pirates
+9. Verified my message displayed on my mac by compiling and running the file
+![Image](luffySS.png)
+10. I entered the scp command from earlier `scp WhereAmI.java cs15lfa22bo@ieng6.ucsd.edu:~/` but instead of asking me the password to my cse15l account it is asked for my new SSH key password
+![Image](scpSS.png)
+I entered my new password and the file was copied to the remote computer
+11. When `ssh` into my cs15lfa account I also used my new SSH key password which was a lot quicker than my old one
+![Image](sshKeySS.png)
+12. Next I compiled and ran the `WhereAmI.java` file and it worked; my new message was displayed on the remote computer!
+![Image](kingOfPiratesRemote.png)
+
+## Optimizing Remote Running
