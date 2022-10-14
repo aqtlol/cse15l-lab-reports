@@ -63,7 +63,7 @@ Here you can see me using the add command to add in my name, Matthew.
 ![Image](week-3-screenshots/myNameSS.png)
 The method being called in the code is the only method in `daHandler` class which is the `handleRequest` method. 
 
-The `handleRequest` method goes into a if, elif, else statement. In the else statement the method checks checks if the url contains `/add`. Since it does, the method splits the query by the `=` and stores the 2 split strings into a string array `parameters`. Using `parameters[1]` the method accesses the string argument. The string argument is then added to the array of strings `sList`. 
+The `handleRequest` method goes into a if, else if, else statement. In the else statement the method checks if the url path contains `/add`. Since it does, the method splits the query by the `=` and stores the 2 split strings into a string array `parameters`. Using `parameters[1]` the method accesses the string argument. The string argument is then added to the array of strings `sList`. 
 > `sList` is an array list of type `String` outside of the method that stores all of the strings we are going to add into our array and display on our website. 
 
 Finally the method returns `sList` demonstrating the string array on my website and revealing the string I added, in this case my name.
@@ -86,4 +86,11 @@ Look at all that **goo**🦠🦠🦠
 
 But in all seriousness we can see that I added lots of strings in my array that matched the search query `goo`
 
+So what is going on here? We are actually still using the same `handleRequest` method, however, we are accessing a different part of the if, else if, else statements.
 
+In the `else if` statement the method checks if the path of the url is equal to `/search` and it is. The url query is split and indexed at 1 to access the string arugment in the url. The string argument is set to the field `searchChar`. Now a new string array is created called `output`, this is where the strings the match our search will be added to. Next a for loop checks to see if each string element in `sList` contains the search string. If the string in `sList` contians the search string, then the string is stored into the new `output` array. Finally once the loop checks all of the strings in `sList`, the method returns `output` containing the strings that matched the search query.
+
+So what changed?
+* Well the else if statement created a new string array `output`
+* The strings in `sList` that contained the search query `goo` were stored into `output`
+* [googe, goop, goob, goober]
