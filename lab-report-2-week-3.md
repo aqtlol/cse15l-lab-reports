@@ -58,4 +58,14 @@ class SearchEngine {
     }
 }
 ```
-Pretty cool right! Here you can see me using the add command to add in some elements.
+Pretty cool right! Here you can see me using the add command to add in my name, Matthew.
+![Image](week-3-screenshots/myNameSS.png)
+
+Next I added a few more strings.
+![Image](week-3-screenshots/lotsOfAdds.png)
+
+Finally I used to search to see what sorts of *goo*🦠 in our site.
+![Image](week-3-screenshots/searchGoo.png)
+Look at all that **goo**🦠🦠🦠
+
+But in all seriousness we can see that we had lots of strings in our array that matched the search query `goo`
