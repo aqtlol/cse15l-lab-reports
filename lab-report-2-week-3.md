@@ -95,3 +95,38 @@ So what changed?
 * The strings in `sList` that contained the search query `goo` were stored into `output`
 * [googe, goop, goob, goober]
 ## Part 2
+Here we were testing some code using J-unit and fixed bugs. I decided to fix the `reversed` method from `ArrayExamples.java` and the `blank` from `LinkedListExample.java`
+
+------
+
+**Reversed**
+
+The failure-inducing input I typed up was: 
+```
+@Test
+  public void testMyReversed() {
+    int[] input = {1, 2, 3};
+    assertArrayEquals(new int[] {3, 2, 1}, ArrayExamples.reversed(input));
+  }
+  ```
+Symptom:
+![Image](week-3-screenshots/reversedSymptom.png)
+The symptom is that the expected array and the actual array have different elements at the index 0. The test is expecting index 0 to be 3 but instead it was 0.
+
+Bug fix:
+```
+  static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for(int i = 0; i < arr.length; i += 1) {
+      newArray[arr.length - i - 1] = arr[i];
+    }
+    return newArray;
+  }
+  ```
+Why did the symptom occur from bug?
+
+From what I think the previous code for the `reversed` method had 2 bugs that caused the symptom to occur. First off the code was originally returning `arr` which was not the `newArray` that was created. Secondly the code was storying ints from `newArray` into `arr`. Since `newArray` was a new array that did not contain anything there was nothing to store into `arr`, and so `arr` stored 0 for all of its indicies. That is why in the symptom the expected and actual values differ at index 0. That also explains why the actual value was 0 instead of being 3.
+
+
+-------
+**method**
