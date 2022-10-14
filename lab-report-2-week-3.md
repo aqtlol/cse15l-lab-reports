@@ -94,3 +94,4 @@ So what changed?
 * Well the else if statement created a new string array `output`
 * The strings in `sList` that contained the search query `goo` were stored into `output`
 * [googe, goop, goob, goober]
+## Part 2
