@@ -61,12 +61,29 @@ class SearchEngine {
 Pretty cool right!
 Here you can see me using the add command to add in my name, Matthew.
 ![Image](week-3-screenshots/myNameSS.png)
+The method being called in the code is the only method in `daHandler` class which is the `handleRequest` method. 
+
+The `handleRequest` method goes into a if, elif, else statement. In the else statement the method checks checks if the url contains `/add`. Since it does, the method splits the query by the `=` and stores the 2 split strings into a string array `parameters`. Using `parameters[1]` the method accesses the string argument. The string argument is then added to the array of strings `sList`. 
+> `sList` is an array list of type `String` outside of the method that stores all of the strings we are going to add into our array and display on our website. 
+
+Finally the method returns `sList` demonstrating the string array on my website and revealing the string I added, in this case my name.
+
+So what changed?
+* `sList` went from being empty to containing the string `Matthew`
 
 Next I added a few more strings.
 ![Image](week-3-screenshots/lotsOfAdds.png)
+Here a similar request is being made to the one explained above since we are calling the `handleRequest` method again.
+
+The same steps occur as explained above but the difference here is that `sList` is not empty, it has been filled with a bunch of other strings.
+
+So what is changing?
+* Again `sList` is changed. It now contains a new string at the end of the array, `tritons`
 
 Finally I used to search to see what sorts of *goo*🦠 I had in my site.
 ![Image](week-3-screenshots/searchGoo.png)
 Look at all that **goo**🦠🦠🦠
 
 But in all seriousness we can see that I added lots of strings in my array that matched the search query `goo`
+
+
