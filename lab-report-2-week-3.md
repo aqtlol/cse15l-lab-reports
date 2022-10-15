@@ -114,6 +114,8 @@ Symptom:
 The symptom is that the expected array and the actual array have different elements at the index 0. The test is expecting index 0 to be 3 but instead it was 0.
 
 Bug fix:
+
+From what I think the previous code for the `reversed` method had 2 bugs that caused the symptom to occur. First off the code was originally returning `arr` which was not the `newArray` that was created. Secondly the code was storying ints from `newArray` into `arr`. Since `newArray` was a new array that did not contain anything there was nothing to store into `arr`, and so `arr` stored 0 for all of its indicies. To change this I set `reversed` to return `newArray` and I switched the code in the for loop so that `arr` elements were being added to the `newArray` in reverse order.
 ```
   static int[] reversed(int[] arr) {
     int[] newArray = new int[arr.length];
@@ -125,7 +127,7 @@ Bug fix:
   ```
 Why did the symptom occur from bug?
 
-From what I think the previous code for the `reversed` method had 2 bugs that caused the symptom to occur. First off the code was originally returning `arr` which was not the `newArray` that was created. Secondly the code was storying ints from `newArray` into `arr`. Since `newArray` was a new array that did not contain anything there was nothing to store into `arr`, and so `arr` stored 0 for all of its indicies. That is why in the symptom the expected and actual values differ at index 0. That also explains why the actual value was 0 instead of being 3.
+ The `input` was an int array of {1,2,3}. I was expecting that it would return the reverse of the array which would have been {3,2,1}. But `reverse` was unable to do that becasue it was built wrong. Instead of adding elements in reverse order from the old array and storing them into a new array, it was storing elements from a new empty array into the old array. This overrided the input I had created and set all the values in the array to equal 0, {0, 0, 0}. That is why we see the elements differ at position 0. The test expected 3 but instead the actual value in `input` at position 0 was 0. 
 
 
 -------
@@ -165,4 +167,17 @@ Symptom:
 If we check the output it shows that our `expected` and actual results carry the same String elements but at different indicies. The `filter` method says that String elements should be filtered into a new list in the same order. Time for debugging!
 
 Bug:
+The `filter` method was checking if each element in the list passed `true` for `checkString`. However the mistake was adding the string elements that passed to the new list at position 0, the front of the list. I changed the `filter` method by making sure Strings were added to the end of the list.
+```  static List<String> filter(List<String> list, StringChecker sc) {
+    List<String> result = new ArrayList<>();
+    for(String s: list) {
+      if(sc.checkString(s)) {
+        result.add(s); // was result.add(0 , s);
+      }
+    }
+    return result;
+  }
+  ```
+Why did the symptom occur from the bug?
 
+My `checkString` method ensures that strings are greater than length 6. My input list contained 6 different strings of fruit, however, only 2 of them contained lengths greater than 6, strawberry and pinapple. My test was expecting a new list containing [strawberry, pinapple] in that order since that was the order they were in the input  `list`. Instead the actual value returned [pineapple, strawberry] which meant that the Strings were being stored into the list incorrectly. They were being stored from the front of the list, instead of at the end of the list. Storing at the end of the list preserves the original order of the Strings.
