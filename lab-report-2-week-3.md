@@ -95,7 +95,7 @@ So what changed?
 * The strings in `sList` that contained the search query `goo` were stored into `output`
 * [googe, goop, goob, goober]
 ## Part 2
-Here we were testing some code using J-unit and fixed bugs. I decided to fix the `reversed` method from `ArrayExamples.java` and the `blank` from `LinkedListExample.java`
+Here we were testing some code using J-unit and fixed bugs. I decided to fix the `reversed` method from `ArrayExamples.java` and the `filter` from `ListExample.java`
 
 ------
 
@@ -129,4 +129,40 @@ From what I think the previous code for the `reversed` method had 2 bugs that ca
 
 
 -------
-**method**
+**Filter**
+
+Wow this one was a struggle. The hardest part was just creating a test to even find the bug. I decided that I was going to test the filter method and find any bugs. I did not realize that I would not to implement a `checkString()` method in order to use `filter`. This is because `filter` takes in two parameters, `List<String>` and `StringChecker`
+> `filter(List<String> list, StringChecker sc)`
+
+Coding is not easy my friend but we are all learning. I spent a good amount of time trying to make this work. First I was having trouble because I was trying to make `checkString()` see if the `String` in the `list` contained another `String s`. 
+
+It was me mad, until finally I realized that that is not the only thing that I could check in a string. I was focused on comparing to another `String` until I realized that I could simply check the size of the `String` using `.length()`. 
+
+Still I ran into problems trying to use call `new checkString()` into my test. However, filter asks for a type `StringChecker`, so if `ListExamples` implements `StringChecker` I could create a new `ListExamples` and store it under the type `StringChecker`. Finally I had a working test!
+
+Failure-Inducing Input:
+```    @Test
+    public void testFilter() {
+        List<String> list = new ArrayList<>();
+        list.add("apple");
+        list.add("mango");
+        list.add("fruit");
+        list.add("strawberry");
+        list.add("pineapple");
+        list.add("grapes");
+
+        StringChecker sc = new ListExamples();
+
+        List<String> expected = new ArrayList<>(); // new String[] {"strawberry", "pineapple"}
+        expected.add("strawberry");
+        expected.add("pineapple");
+
+        assertEquals(expected, ListExamples.filter(list, sc));
+    }
+```
+Symptom:
+![Image](week-3-screenshots/listTestSymptom.png)
+If we check the output it shows that our `expected` and actual results carry the same String elements but at different indicies. The `filter` method says that String elements should be filtered into a new list in the same order. Time for debugging!
+
+Bug:
+
