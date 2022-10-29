@@ -169,7 +169,8 @@ If we check the output it shows that our `expected` and actual results carry the
 Bug:
 The `filter` method was checking if each element in the list passed `true` for `checkString`. However the mistake was adding the string elements that passed to the new list at position 0, the front of the list. I changed the `filter` method by making sure Strings were added to the end of the list.
 
-```  static List<String> filter(List<String> list, StringChecker sc) {
+```  
+static List<String> filter(List<String> list, StringChecker sc) {
     List<String> result = new ArrayList<>();
     for(String s: list) {
       if(sc.checkString(s)) {
@@ -178,7 +179,7 @@ The `filter` method was checking if each element in the list passed `true` for `
     }
     return result;
   }
-  ```
+```
 
 Why did the symptom occur from the bug?
 
