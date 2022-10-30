@@ -163,5 +163,23 @@ Input:
 grep -v -c "the" technical/911report/*
 ```
 Output:
-![Image](week-5-screenshots/inverse.png)
+```
+technical/911report/chapter-1.txt:418
+technical/911report/chapter-10.txt:267
+technical/911report/chapter-11.txt:284
+technical/911report/chapter-12.txt:735
+technical/911report/chapter-13.1.txt:446
+technical/911report/chapter-13.2.txt:769
+technical/911report/chapter-13.3.txt:1079
+technical/911report/chapter-13.4.txt:1871
+technical/911report/chapter-13.5.txt:1802
+technical/911report/chapter-2.txt:422
+technical/911report/chapter-3.txt:1328
+technical/911report/chapter-5.txt:569
+technical/911report/chapter-6.txt:852
+technical/911report/chapter-7.txt:718
+technical/911report/chapter-8.txt:414
+technical/911report/chapter-9.txt:690
+technical/911report/preface.txt:40
+```
 Here the command expands through `911report` and finds the amount of lines in each text file that do not contain the word "the". This can be useful to see what lines do not contain a word acrosss multiple files.
