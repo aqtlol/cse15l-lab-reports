@@ -134,6 +134,7 @@ The command displays which files contain "drug", displaying the line and colorin
 This does the opposite of `grep`. Instead of matching input given by the user, it matches lines that do not do not match with the input. Thus an inverse match. 
 
 **Example 1**
+
 Input:
 ```
 grep -v "adult" technical/biomed/1468-6708-3-1.txt
