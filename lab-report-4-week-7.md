@@ -36,7 +36,16 @@ The `c` change command gets saved similar to when you copy something on your com
 This command servers as a save and quit. `:` allows you to chain commands together in vim. `w` is the save command. `q` is the quit command.
 
 ## Part 2
+Here I will be testing performing the change above in vscode compared to vim by timing myself. 
 
+It took me 53 seconds to perform the change on **vscode** and run the test on the remote server.
+
+Note: I did have my cs15lfa22 account copied to my clipboard to easily paste into the commandline.
+
+It took me 19 seconds to make the edit in **vim**, exit vim and run the bash script.
+
+-------------------------
+I would prefer to use **vim** if I were working on a program that I was running remotely. As seen above there was a huge difference in time that mainly came just from `scp` and `ssh` to copy the local file to remote server and run the file on the remote server. That is a 34 second time difference that can be avoided when performing the same task. Especially on a task like the one I performed that involves changing all occurnaces of a variable name, I would 100% use vim. Changing the variable manually in vscode takes time and could lead to errors in the code if I miss changing a variable name. By using vim I optimize my time and will be able to quickly search for all instances of the variable name so it would be unlikely to miss changing a variable when performing the task.
 
 
 
