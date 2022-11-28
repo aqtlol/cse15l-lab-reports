@@ -87,6 +87,7 @@ Sets Junit to a variable JU making it easier to call later.
 * `stdout` : *None*
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 rm -rf student-submission
 ```
@@ -94,6 +95,7 @@ This line removes the previous student-submission.
 * `stdout` : *None*
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 git clone $1 student-submission
 ```
@@ -101,6 +103,7 @@ This clones the student submission that we will test for our grades script to a 
 * `stdout` : Cloning into 'student-submission' ...
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 echo "Successful clone"
 ```
@@ -108,6 +111,7 @@ Serves as a message to let us now that the repo was properly cloned.
 * `stdout` : Successful Clone
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 FILE=student-submission/ListExamples.java
 ```
@@ -115,10 +119,12 @@ Sets the file path to a variable called `FILE` making it easier to call in later
 * `stdout` : *None*
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 if  [ -f "$FILE" ]; then
 ```
 Here we have an if statement that checks for the students ListExamples.java file. `-f` returns true if the file exists. The condition returns true because ListExamples.java exists inside of the student-submission directory.
+
 ```
     echo "file exists"
 ```
@@ -126,6 +132,7 @@ Prints a message after the if statement returns true to let us know that the Lis
 * `stdout`: file exists
 * `stderr`: *None*
 * Return Code: 0
+
 ```
 else
     echo "ListExamples.java was not found."
@@ -134,10 +141,12 @@ else
     exit 1
 ```
 The following lines do not run becasue the condition of the if statement returned true.
+
 ```
 fi
 ```
 Just signals the end of our if statement from above.
+
 ```
 cp -r lib student-submission
 ```
@@ -145,6 +154,7 @@ Copies Junit files into the student-submission directory.
 * `stdout` : *None*
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 echo "Junit copied"
 ```
@@ -152,6 +162,7 @@ Message displaying Junit was succesfully copied.
 * `stdout` : Junit copied
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 cp TestListExamples.java student-submission/
 ```
@@ -159,6 +170,7 @@ Copies the tests I made into the student-submission directory.
 * `stdout` : *None*
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 cd student-submission
 ```
@@ -166,6 +178,7 @@ Enters into the student-submission directory.
 * `stdout` : *None*
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 echo "In student-submission"
 ```
@@ -173,6 +186,7 @@ Message to let us know the directory we are in.
 * `stdout` : In student-submission
 * `stderr` : *None*
 * Return code: 0
+
 ```
 SCORE=0
 ```
@@ -180,6 +194,7 @@ Creating a score vairable that will be manipulated to display the grade of the s
 * `stdout` : *None*
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 javac -cp $JU *.java 2> CompileErr.txt
 ```
@@ -187,27 +202,32 @@ Compiles the student code and Junit. Standard error is redirected to a file call
 * `stdout` : *None*
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 if [[ $? -ne 0 ]]; then
 ```
 The condition checks if the following command had a return code that is not equal to 0, meaning an error occured. Since the student's code compiled, the return code was 0, meaning that this condition returns false.
+
 ```
     echo "Your code did not compile. You recieve a $SCORE / 2"
     exit 1
 ```
 The following code does not run because the condition in the if statement returned false.
+
 ```
 echo "Compiled"
 ```
 * `stdout` : Compiled
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 echo "--> Beginning tests now <--"
 ```
 * `stdout`: --> Beginning tests now <--
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 java -cp $JU org.junit.runner.JUnitCore TestListExamples > JunitOut.txt
 ```
@@ -224,6 +244,7 @@ OK (2 tests)
 ```
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 grep -q "2 tests" JunitOut.txt
 ```
@@ -231,10 +252,12 @@ Checks to see if "2 tests" exists in `JunitOut.txt`. "2 tests" is stored in the 
 * `stdout` : *None*
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 if [[ $? -eq 0 ]]; then
 ```
 The condition returns true. The condition returns true because it is checking the return code of the last called command. Since "2 tests" does exist in JunitOut.txt then the return code was as 0.
+
 ```
     SCORE=2
 ```
@@ -242,6 +265,7 @@ Sets the SCORE variable to 2 for passing all of the tests.
 * `stdout` : *None*
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 grep -q "Failures: 1" JunitOut.txt
 ```
@@ -249,14 +273,17 @@ Checks to see if "Failures: 1" exists in `JunitOut.txt`. If "Failures: 1" is sto
 * `stdout` : *None*
 * `stderr` : *None*
 * Return Code: 1
+
 ```
 if [[ $? -eq 0 ]]; then
 ```
 The condition returns false because The last command run has a return code of 1.
+
 ```
     SCORE=1
 ```
 This code does not run since the condition in the if statement returned false.
+
 ```
 echo "Your score is: $SCORE / 2"
 ```
@@ -264,20 +291,24 @@ Returns the score of the student using the variable we created.
 * `stdout` : Your score is: 2 / 2
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 if [[ $SCORE -eq 2 ]]; then
 ```
 The condition returns true because the value contained in `SCORE` is 2.
+
 ```
     echo "Great job! All tests passed!"
 ```
 * `stdout` : Great job! All tests passed!
 * `stderr` : *None*
 * Return Code: 0
+
 ```
 if [[ $SCORE -eq 1 ]]; then
 ```
 The condition returns false because the value contained in `SCORE` is 1.
+
 ```
     echo "Uh Oh! A test is failing! Revise your code."
 ```
