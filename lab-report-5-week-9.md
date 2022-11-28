@@ -140,7 +140,7 @@ else
     echo "Check that your file is named properly and that your file is not nested."
     exit 1
 ```
-The following lines do not run becasue the condition of the if statement returned true.
+The following lines do not run because the condition of the if statement returned true.
 
 ```
 fi
@@ -233,15 +233,14 @@ java -cp $JU org.junit.runner.JUnitCore TestListExamples > JunitOut.txt
 ```
 This command runs our tests on the student's code. It uses our JU variable that we set previously. The `stdout` is saved to JunitOut.txt so that we can properly score the students code by using the output of the command.
 * `stdout` : 
-```
+
 JUnit version 4.13.2
+
 ..
+
 Time: 0.015
 
 OK (2 tests)
-
-
-```
 * `stderr` : *None*
 * Return Code: 0
 
