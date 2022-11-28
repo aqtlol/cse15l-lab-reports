@@ -36,7 +36,7 @@ SCORE=0
 
 javac -cp $JU *.java 2> CompileErr.txt
 if [[ $? -ne 0 ]]; then
-    echo "Your code did not compile. You recieve a $SCORE."
+    echo "Your code did not compile. You recieve a $SCORE / 2"
     exit 1
 fi
 echo "Compiled"
@@ -56,8 +56,24 @@ fi
 
 
 echo "Your score is: $SCORE / 2"
+if [[ $SCORE -eq 2 ]]; then
+    echo "Great job! All tests passed!"
+fi
+if [[ $SCORE -eq 1 ]]; then
+    echo "Uh Oh! A test is failing! Revise your code."
+fi
 ```
 
 ## Screenshots on Local Server
+Repository: https://github.com/ucsd-cse15l-f22/list-methods-lab3
+![Image](week-9-screenshots/fails-one.png)
+
+Repository: https://github.com/ucsd-cse15l-f22/list-methods-corrected
+![Image](week-9-screenshots/correct.png)
+
+Repository: https://github.com/ucsd-cse15l-f22/list-methods-filename
+![Image](week-9-screenshots/wrong-name.png)
 
 ## Tracing the grading script
+For this trace we will be examining the following repository, https://github.com/ucsd-cse15l-f22/list-methods-corrected , which recieved a score of 2/2. A full score!
+
