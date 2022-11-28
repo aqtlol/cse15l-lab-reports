@@ -75,9 +75,10 @@ Repository: https://github.com/ucsd-cse15l-f22/list-methods-filename
 ![Image](week-9-screenshots/wrong-name.png)
 
 ## Tracing the grading script
-For this trace we will be tracing the following student submission, https://github.com/ucsd-cse15l-f22/list-methods-corrected , which recieved a score of 2/2. A full score! 
-> In the trace I will be talking about standard output and standard error of commands. I will be using the abbreviations `stdout` for standard output and `stderr` for standard error. If *None* is written for either it means that nothing was produced.
->
+For this trace we will be tracing the following student submission, https://github.com/ucsd-cse15l-f22/list-methods-corrected , which recieved a score of 2/2. A full score!
+
+In the trace I will be talking about standard output and standard error of commands. I will be using the abbreviations `stdout` for standard output and `stderr` for standard error. If *None* is written for either it means that nothing was produced.
+
 -------
 ```
 JU=".:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar"
