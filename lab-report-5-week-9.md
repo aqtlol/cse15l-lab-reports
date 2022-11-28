@@ -247,7 +247,7 @@ OK (2 tests)
 ```
 grep -q "2 tests" JunitOut.txt
 ```
-Checks to see if "2 tests" exists in `JunitOut.txt`. "2 tests" is stored in the text file when both the tests pass.
+Checks to see if "2 tests" exists in `JunitOut.txt`. If "2 tests" is stored in the text file that means that both of the tests passed.
 * `stdout` : *None*
 * `stderr` : *None*
 * Return Code: 0
@@ -306,7 +306,7 @@ The condition returns true because the value contained in `SCORE` is 2.
 ```
 if [[ $SCORE -eq 1 ]]; then
 ```
-The condition returns false because the value contained in `SCORE` is 1.
+The condition returns false because the value contained in `SCORE` is 2.
 
 ```
     echo "Uh Oh! A test is failing! Revise your code."
